@@ -1,16 +1,14 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using EMS.Data;
+using EMS.Services;
+using EMS.Services.Interfaces;
+using EMS.UI;
+using EMS.UI.Interfaces;
+using EMS.Utilities;
+using EMS.Utilities.Interfaces;
+using EMS.Validation;
+using EMS.Validation.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Project.EmployeeManagementSystem.EMS.Client.Components;
-using Project.EmployeeManagementSystem.EMS.Client.Components.Interfaces;
-using Project.EmployeeManagementSystem.EMS.Client.UI;
-using Project.EmployeeManagementSystem.EMS.Client.UI.Interfaces;
-using Project.EmployeeManagementSystem.EMS.Client.View;
-using Project.EmployeeManagementSystem.EMS.Client.View.Interfaces;
-using Project.EmployeeManagementSystem.EMS.Core.BusinessServices;
-using Project.EmployeeManagementSystem.EMS.Core.BusinessServices.Interfaces;
-using Project.EmployeeManagementSystem.EMS.Data.Context;
-using Project.EmployeeManagementSystem.EMS.Data.Repository;
-using Project.EmployeeManagementSystem.EMS.Data.Repository.Interfaces;
 
 namespace Project.EmployeeManagementSystem
 {
@@ -37,17 +35,14 @@ namespace Project.EmployeeManagementSystem
                     services.AddSingleton<IEmployeeFetcher, EmployeeFetcher>();
                     services.AddSingleton<IEmployeeManager, EmployeeManager>();
                     services.AddSingleton<IEmployeeSorter, EmployeeSorter>();
-                    services.AddSingleton<EmployeeSorter>();
 
                     // Register core business services
                     services.AddSingleton<IMenuOptions, MenuOptions>();
                     services.AddSingleton<IDisplay, Display>();
                     services.AddSingleton<IGetValidation, GetValidation>();
                     services.AddSingleton<IInputValidation, InputValidation>();
-                    services.AddSingleton<IMenuSelectionHandler, MenuSelectionHandler>();
+                    services.AddSingleton<IMenuProcessor, MenuProcessor>();
                     services.AddSingleton<IModelExtras, ModelExtras>();
-                    services.AddSingleton<ModelExtras>();
-
 
                     // Register the MenuRunner
                     services.AddSingleton<IMenuRunner, MenuRunner>();
