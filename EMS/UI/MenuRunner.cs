@@ -1,7 +1,5 @@
 ﻿using EMS.UI.Interfaces;
-using EMS.Services.Interfaces;
-using EMS.Validation.Interfaces;
-
+using EMS.Utilities.Interfaces;
 
 namespace EMS.UI
 {
@@ -9,10 +7,10 @@ namespace EMS.UI
     {
         private readonly IDisplay _display;
         private readonly IMenuOptions _menuOptions;
-        private readonly IGetValidation _getValidation;
-        private readonly IMenuProcessor _menuSelectionHandler;
+        private readonly IInputPrompter _getValidation;
+        private readonly IMenuHandler _menuSelectionHandler;
 
-        public MenuRunner(IDisplay display, IMenuOptions menuOptions, IGetValidation getValidation, IMenuProcessor menuSelectionHandler)
+        public MenuRunner(IDisplay display, IMenuOptions menuOptions, IInputPrompter getValidation, IMenuHandler menuSelectionHandler)
         {
             _display = display;
             _menuOptions = menuOptions;

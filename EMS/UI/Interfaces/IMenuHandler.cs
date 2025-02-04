@@ -1,8 +1,8 @@
 ﻿using EMS.Models;
 
-namespace EMS.Services.Interfaces
+namespace EMS.UI.Interfaces
 {
-    public interface IMenuProcessor
+    public interface IMenuHandler
     {
         void HandleEmployeeManageSelection(int selection);
         List<Employee> HandleCreateListSelection(int selection);

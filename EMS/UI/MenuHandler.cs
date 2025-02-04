@@ -1,17 +1,16 @@
 ﻿using EMS.Models;
 using EMS.Services.Interfaces;
+using EMS.UI.Interfaces;
 
-namespace EMS.Services
+namespace EMS.UI
 {
-    public class MenuProcessor : IMenuProcessor
+    public class MenuHandler : IMenuHandler
     {
-        private readonly IEmployeeService _employeeService;
         private readonly IEmployeeSorter _employeeSorter;
         private readonly IEmployeeManager _employeeManager;
 
-        public MenuProcessor(IEmployeeService employeeService, IEmployeeSorter employeeSorter, IEmployeeManager employeeManager)
+        public MenuHandler(IEmployeeSorter employeeSorter, IEmployeeManager employeeManager)
         {
-            _employeeService = employeeService;
             _employeeSorter = employeeSorter;
             _employeeManager = employeeManager;
         }
@@ -21,13 +20,13 @@ namespace EMS.Services
             switch (selection)
             {
                 case 1:
-                    _employeeService.AddNewEmployee();
+                    _employeeManager.AddNewEmployee();
                     break;
                 case 2:
-                    _employeeService.EditExistingEmployee();
+                    _employeeManager.EditExistingEmployee();
                     break;
                 case 3:
-                    _employeeService.RemoveEmployee();
+                    _employeeManager.RemoveEmployee();
                     break;
                 case 4:
                     _employeeManager.ShowAllEmployees();

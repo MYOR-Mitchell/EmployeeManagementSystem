@@ -1,6 +1,6 @@
-﻿namespace EMS.Validation.Interfaces
+﻿namespace EMS.Utilities.Interfaces
 {
-    public interface IInputValidation
+    public interface IInputValidator
     {
         bool ValidateSelection(string input, int maxRange, out int validSelection);
         bool ValidateName(string input);

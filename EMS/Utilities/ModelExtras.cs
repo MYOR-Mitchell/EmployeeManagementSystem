@@ -17,7 +17,6 @@ namespace EMS.Utilities
 
         public int GetSeniorityPosition(Employee employee)
         {
-            // Placeholder.  Don't forget to do this.
             return 0;
         }
     }

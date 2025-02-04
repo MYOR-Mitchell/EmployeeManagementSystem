@@ -5,9 +5,9 @@ namespace EMS.Services
 {
     public class EmployeeSorter : IEmployeeSorter
     {
-        private readonly IEmployeeManager _EmployeeManager;
+        private readonly IEmployeeDataHandler _EmployeeManager;
 
-        public EmployeeSorter(IEmployeeManager EmployeeManager)
+        public EmployeeSorter(IEmployeeDataHandler EmployeeManager)
         {
             _EmployeeManager = EmployeeManager;
         }

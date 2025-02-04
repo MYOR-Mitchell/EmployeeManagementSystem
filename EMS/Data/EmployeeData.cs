@@ -6,7 +6,6 @@ namespace EMS.Data
     {
         public List<Employee> Employees => _employees;
 
-
         private List<Employee> _employees = new List<Employee> 
         {
             new Employee(568013, "Ella", "Adams", new DateTime(2003, 8, 11)),

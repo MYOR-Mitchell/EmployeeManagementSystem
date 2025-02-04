@@ -1,12 +1,12 @@
-﻿using EMS.Validation.Interfaces;
+﻿using EMS.Utilities.Interfaces;
 
-namespace EMS.Validation
+namespace EMS.Utilities
 {
-    public class GetValidation : IGetValidation
+    public class InputPrompter : IInputPrompter
     {
-        private readonly IInputValidation _inputValidation;
+        private readonly IInputValidator _inputValidation;
 
-        public GetValidation(IInputValidation inputValidator)
+        public InputPrompter(IInputValidator inputValidator)
         {
             _inputValidation = inputValidator;
         }
@@ -65,7 +65,7 @@ namespace EMS.Validation
 
                 if (_inputValidation.ParseInt(input, out validId) && validId > 0)
                 {
-                    return validId; 
+                    return validId;
                 }
 
                 Console.WriteLine("Invalid input. Please, try again.");

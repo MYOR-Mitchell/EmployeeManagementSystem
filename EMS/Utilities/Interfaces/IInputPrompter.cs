@@ -1,6 +1,6 @@
-﻿namespace EMS.Validation.Interfaces
+﻿namespace EMS.Utilities.Interfaces
 {
-    public interface IGetValidation
+    public interface IInputPrompter
     {
         int GetValidSelection(int maxRange);
         string GetValidName(string prompt = "");

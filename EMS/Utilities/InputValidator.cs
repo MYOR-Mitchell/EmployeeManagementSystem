@@ -1,9 +1,9 @@
-﻿using EMS.Validation.Interfaces;
+﻿using EMS.Utilities.Interfaces;
 using System.Text.RegularExpressions;
 
-namespace EMS.Validation
+namespace EMS.Utilities
 {
-    public class InputValidation : IInputValidation
+    public class InputValidator : IInputValidator
     {
         public bool ValidateSelection(string input, int maxRange, out int validSelection)
         {

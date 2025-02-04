@@ -5,8 +5,6 @@ using EMS.UI;
 using EMS.UI.Interfaces;
 using EMS.Utilities;
 using EMS.Utilities.Interfaces;
-using EMS.Validation;
-using EMS.Validation.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -29,15 +27,15 @@ namespace Project.EmployeeManagementSystem
                     services.AddSingleton<EmployeeData>();
 
                     services.AddSingleton<IEmployeeFetcher, EmployeeFetcher>();
-                    services.AddSingleton<IEmployeeManager, EmployeeManager>();
+                    services.AddSingleton<IEmployeeDataHandler, EmployeeDataHandler>();
                     services.AddSingleton<IEmployeeSorter, EmployeeSorter>();
-                    services.AddSingleton<IEmployeeService, EmployeeService>();
+                    services.AddSingleton<IEmployeeManager, EmployeeManager>();
 
                     services.AddSingleton<IMenuOptions, MenuOptions>();
                     services.AddSingleton<IDisplay, Display>();
-                    services.AddSingleton<IGetValidation, GetValidation>();
-                    services.AddSingleton<IInputValidation, InputValidation>();
-                    services.AddSingleton<IMenuProcessor, MenuProcessor>();
+                    services.AddSingleton<IInputPrompter, InputPrompter>();
+                    services.AddSingleton<IInputValidator, InputValidator>();
+                    services.AddSingleton<IMenuHandler, MenuHandler>();
                     services.AddSingleton<IModelExtras, ModelExtras>();
 
                     services.AddSingleton<IMenuRunner, MenuRunner>();

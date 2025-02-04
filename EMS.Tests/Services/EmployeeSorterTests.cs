@@ -22,7 +22,7 @@ namespace EMS.Tests.Services
                 new Employee(7, "Zack", "Brown", new DateTime(2000, 3, 12))
             };
 
-            var mockManager = new Mock<IEmployeeManager>();
+            var mockManager = new Mock<IEmployeeDataHandler>();
             mockManager.Setup(f => f.GetAllEmployees()).Returns(employees);
 
             var sorter = new EmployeeSorter(mockManager.Object);
