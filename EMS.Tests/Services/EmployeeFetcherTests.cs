@@ -1,17 +1,20 @@
 ﻿using EMS.Services;
 using EMS.Data;
+using EMS.Models;
 
 namespace EMS.Tests.Services
 {
     public class EmployeeFetcherTests
     {
+        private readonly EmployeeDataHandler _dataHandler;
         private readonly EmployeeFetcher _fetcher;
-        private readonly EmployeeData _employeeData;
 
         public EmployeeFetcherTests()
         {
-            _employeeData = new EmployeeData();
-            _fetcher = new EmployeeFetcher(_employeeData);
+            _dataHandler = new EmployeeDataHandler(new EmployeeData());
+            _fetcher = new EmployeeFetcher(_dataHandler);
+
+            _dataHandler.AddEmployee(new Employee(123456, "John", "Doe", new DateTime(1990, 5, 15)));
         }
 
         [Theory]
@@ -20,7 +23,11 @@ namespace EMS.Tests.Services
         [InlineData("JOHN", "DOE")]
         public void GetEmployeeByName_ShouldReturnCorrectEmployee(string firstName, string lastName)
         {
-            var expectedEmployee = _employeeData.Employees.First(e => e.FirstName == "John" && e.LastName == "Doe");
+            var expectedEmployee = _dataHandler.GetAllEmployees().FirstOrDefault(e =>
+                e.FirstName.Equals("John", StringComparison.OrdinalIgnoreCase) &&
+                e.LastName.Equals("Doe", StringComparison.OrdinalIgnoreCase));
+
+            Assert.NotNull(expectedEmployee);
 
             var result = _fetcher.GetEmployeeByName(firstName, lastName);
 
