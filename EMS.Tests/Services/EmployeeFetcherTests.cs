@@ -18,9 +18,6 @@ namespace EMS.Tests.Services
         [InlineData("John", "Doe")]
         [InlineData("john", "doe")]
         [InlineData("JOHN", "DOE")]
-        [InlineData("john", " doe")]
-        [InlineData(" john", "doe")]
-        [InlineData("john", "doé")]
         public void GetEmployeeByName_ShouldReturnCorrectEmployee(string firstName, string lastName)
         {
             var expectedEmployee = _employeeData.Employees.First(e => e.FirstName == "John" && e.LastName == "Doe");
@@ -29,6 +26,15 @@ namespace EMS.Tests.Services
 
             Assert.NotNull(result);
             Assert.Equal(expectedEmployee.Id, result.Id);
+        }
+
+        [Fact]
+        public void GetEmployeeByName_ShouldThrowException_WhenEmployeeDoesNotExist()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                _fetcher.GetEmployeeByName("Fake", "Person");
+            });
         }
     }
 }

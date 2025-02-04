@@ -53,5 +53,24 @@ namespace EMS.Validation
                 Console.WriteLine("Invalid input. Please, try again.");
             }
         }
+
+        public int GetValidId(string prompt = "")
+        {
+            int validId;
+
+            while (true)
+            {
+                Console.WriteLine(prompt);
+                string input = Console.ReadLine();
+
+                if (_inputValidation.ParseInt(input, out validId) && validId > 0)
+                {
+                    return validId; 
+                }
+
+                Console.WriteLine("Invalid input. Please, try again.");
+            }
+        }
+
     }
 }

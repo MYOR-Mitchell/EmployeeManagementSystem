@@ -13,11 +13,6 @@ namespace EMS.Services
             _employeeData = employeeData;
         }
 
-        public List<Employee> GetAllEmployees()
-        {
-            return _employeeData.Employees;
-        }
-
         public Employee GetEmployeeById(int id)
         {
             var employee = _employeeData.Employees.FirstOrDefault(e => e.Id == id);

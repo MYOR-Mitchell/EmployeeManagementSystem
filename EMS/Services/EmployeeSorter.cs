@@ -5,16 +5,16 @@ namespace EMS.Services
 {
     public class EmployeeSorter : IEmployeeSorter
     {
-        private readonly IEmployeeFetcher _employeeFetcher;
+        private readonly IEmployeeManager _EmployeeManager;
 
-        public EmployeeSorter(IEmployeeFetcher employeeFetcher)
+        public EmployeeSorter(IEmployeeManager EmployeeManager)
         {
-            _employeeFetcher = employeeFetcher;
+            _EmployeeManager = EmployeeManager;
         }
 
         public List<Employee> SortAlphabetical()
         {
-            return _employeeFetcher.GetAllEmployees()
+            return _EmployeeManager.GetAllEmployees()
                 .OrderBy(e => e.LastName)
                 .ThenBy(e => e.FirstName)
                 .ToList();
@@ -22,7 +22,7 @@ namespace EMS.Services
 
         public List<Employee> SortSeniority()
         {
-            return _employeeFetcher.GetAllEmployees()
+            return _EmployeeManager.GetAllEmployees()
                 .OrderBy(e => e.HireDate)
                 .ThenBy(e => e.LastName)
                 .ThenBy(e => e.FirstName)
@@ -31,7 +31,7 @@ namespace EMS.Services
 
         public List<Employee> SortRandom()
         {
-            return _employeeFetcher.GetAllEmployees()
+            return _EmployeeManager.GetAllEmployees()
                 .OrderBy(e => Guid.NewGuid())
                 .ToList();
         }

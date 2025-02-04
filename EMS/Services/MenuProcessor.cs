@@ -5,24 +5,37 @@ namespace EMS.Services
 {
     public class MenuProcessor : IMenuProcessor
     {
+        private readonly IEmployeeService _employeeService;
         private readonly IEmployeeSorter _employeeSorter;
+        private readonly IEmployeeManager _employeeManager;
 
-        public MenuProcessor(IEmployeeSorter employeeSorter)
+        public MenuProcessor(IEmployeeService employeeService, IEmployeeSorter employeeSorter, IEmployeeManager employeeManager)
         {
+            _employeeService = employeeService;
             _employeeSorter = employeeSorter;
+            _employeeManager = employeeManager;
         }
 
         public void HandleEmployeeManageSelection(int selection)
         {
-            Action action = selection switch
+            switch (selection)
             {
-                1 => () => Console.WriteLine("AddEmployee"),
-                2 => () => Console.WriteLine("EditEmployees"),
-                3 => () => Console.WriteLine("DeleteEmployees"),
-                4 => () => Console.WriteLine("ViewEmployees"),
-            };
-
-            action();
+                case 1:
+                    _employeeService.AddNewEmployee();
+                    break;
+                case 2:
+                    _employeeService.EditExistingEmployee();
+                    break;
+                case 3:
+                    _employeeService.RemoveEmployee();
+                    break;
+                case 4:
+                    _employeeManager.ShowAllEmployees();
+                    break;
+                default:
+                    Console.WriteLine("Invalid selection.");
+                    break;
+            }
         }
 
         public List<Employee> HandleCreateListSelection(int selection)

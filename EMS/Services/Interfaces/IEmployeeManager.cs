@@ -6,6 +6,8 @@ namespace EMS.Services.Interfaces
     {
         void AddEmployee(Employee employee);
         void EditEmployee(Employee employee);
-        void DeleteEmployee(Employee employee);
+        void DeleteEmployee(int id);
+        List<Employee> GetAllEmployees();
+        void ShowAllEmployees();
     }
 }

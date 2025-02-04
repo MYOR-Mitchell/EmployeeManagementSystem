@@ -16,10 +16,8 @@ namespace Project.EmployeeManagementSystem
     {
         public static void Main(string[] args)
         {
-            // Build the host
             using var host = CreateHostBuilder(args).Build();
 
-            // Run the application
             var menuRunner = host.Services.GetRequiredService<IMenuRunner>();
             menuRunner.RunMainMenu();
         }
@@ -28,15 +26,13 @@ namespace Project.EmployeeManagementSystem
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((context, services) =>
                 {
-                    // Register data context
                     services.AddSingleton<EmployeeData>();
 
-                    // Register repository classes
                     services.AddSingleton<IEmployeeFetcher, EmployeeFetcher>();
                     services.AddSingleton<IEmployeeManager, EmployeeManager>();
                     services.AddSingleton<IEmployeeSorter, EmployeeSorter>();
+                    services.AddSingleton<IEmployeeService, EmployeeService>();
 
-                    // Register core business services
                     services.AddSingleton<IMenuOptions, MenuOptions>();
                     services.AddSingleton<IDisplay, Display>();
                     services.AddSingleton<IGetValidation, GetValidation>();
@@ -44,7 +40,6 @@ namespace Project.EmployeeManagementSystem
                     services.AddSingleton<IMenuProcessor, MenuProcessor>();
                     services.AddSingleton<IModelExtras, ModelExtras>();
 
-                    // Register the MenuRunner
                     services.AddSingleton<IMenuRunner, MenuRunner>();
                 });
     }
