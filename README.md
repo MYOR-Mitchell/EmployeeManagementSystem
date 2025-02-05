@@ -34,7 +34,7 @@ Originally this started as a learning project, but it's now being **refined and 
 - **Enhance UI** – Convert to a web-based application using **Blazor WebAssembly** or **ASP.NET MVC**.  
 
 
-## The Journey Continues!
+## The Journey Continues
 This console app has followed back from when I first began coding.  
 It got messy (some valuable learning accidents happened here), but now it's back—**cleaner, better, and ready to grow.**   
 I'll continue refining and improving it, and with time, I'll mold it into something amazing!  
