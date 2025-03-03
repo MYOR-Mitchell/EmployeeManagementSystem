@@ -19,7 +19,7 @@ namespace EMS.Services
         {
             string firstName = _getValidation.GetValidName("Enter first name: ");
             string lastName = _getValidation.GetValidName("Enter last name: ");
-            DateTime hireDate = _getValidation.GetValidHireDate("Enter hire date (yyyy/mm/dd): ");
+            DateTime hireDate = _getValidation.GetValidHireDate("Enter hire date (MM/dd/yyyy): ");
             int id = GenerateUniqueId();
 
             var newEmployee = new Employee(id, firstName, lastName, hireDate);
@@ -40,7 +40,7 @@ namespace EMS.Services
 
             string newFirstName = _getValidation.GetValidName("Enter new first name: ");
             string newLastName = _getValidation.GetValidName("Enter new last name: ");
-            DateTime newHireDate = _getValidation.GetValidHireDate("Enter new hire date (yyyy/mm/dd): ");
+            DateTime newHireDate = _getValidation.GetValidHireDate("Enter new hire date (MM/dd/yyyy): ");
 
             employee.FirstName = newFirstName;
             employee.LastName = newLastName;

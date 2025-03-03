@@ -20,7 +20,7 @@ namespace EMS.Utilities
             return int.TryParse(selection, out validSelection);
         }
 
-        public bool ParseDateTime(string hireDate, out DateTime validHireDate, string format = "yyyy/MM/dd")
+        public bool ParseDateTime(string hireDate, out DateTime validHireDate, string format = "MM/dd/yyyy")
         {
             return DateTime.TryParseExact(hireDate, format, null, System.Globalization.DateTimeStyles.None, out validHireDate);
         }

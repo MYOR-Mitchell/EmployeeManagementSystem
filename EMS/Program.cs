@@ -25,19 +25,16 @@ namespace Project.EmployeeManagementSystem
                 .ConfigureServices((context, services) =>
                 {
                     services.AddSingleton<EmployeeData>();
-
                     services.AddSingleton<IEmployeeFetcher, EmployeeFetcher>();
                     services.AddSingleton<IEmployeeDataHandler, EmployeeDataHandler>();
                     services.AddSingleton<IEmployeeSorter, EmployeeSorter>();
                     services.AddSingleton<IEmployeeManager, EmployeeManager>();
-
                     services.AddSingleton<IMenuOptions, MenuOptions>();
                     services.AddSingleton<IDisplay, Display>();
                     services.AddSingleton<IInputPrompter, InputPrompter>();
                     services.AddSingleton<IInputValidator, InputValidator>();
                     services.AddSingleton<IMenuHandler, MenuHandler>();
                     services.AddSingleton<IModelExtras, ModelExtras>();
-
                     services.AddSingleton<IMenuRunner, MenuRunner>();
                 });
     }
